@@ -28,7 +28,6 @@ end
 helpers do
   def oauth
     @oauth ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"])
-    # @oauth = Koala::Facebook::OAuth.new("205829302844514", "1ff71a44a070230b3e20dc6678659e90")
   end
 end    
 
