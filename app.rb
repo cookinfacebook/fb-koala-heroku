@@ -2,8 +2,8 @@ require "sinatra"
 require "koala"
 
 enable :sessions
-# set :raise_errors, false
-# set :show_exceptions, false
+set :raise_errors, false
+set :show_exceptions, false
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
@@ -14,9 +14,9 @@ enable :sessions
 # for a full list of permissions
 FACEBOOK_SCOPE = 'user_likes,user_photos,user_photo_video_tags'
 
-# unless ENV["FACEBOOK_APP_ID"] && ENV["FACEBOOK_SECRET"]
-#   abort("missing env vars: please set FACEBOOK_APP_ID and FACEBOOK_SECRET with your app credentials")
-# end
+unless ENV["FACEBOOK_APP_ID"] && ENV["FACEBOOK_SECRET"]
+  abort("missing env vars: please set FACEBOOK_APP_ID and FACEBOOK_SECRET with your app credentials")
+end
 
 # before do
 #   # HTTPS redirect
@@ -27,8 +27,8 @@ FACEBOOK_SCOPE = 'user_likes,user_photos,user_photo_video_tags'
 
 helpers do
   def oauth
-    # @oauth ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"])
-    @oauth = Koala::Facebook::OAuth.new("205829302844514", "1ff71a44a070230b3e20dc6678659e90")
+    @oauth ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"])
+    # @oauth = Koala::Facebook::OAuth.new("205829302844514", "1ff71a44a070230b3e20dc6678659e90")
   end
 end    
 

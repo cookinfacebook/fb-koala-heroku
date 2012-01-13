@@ -2,10 +2,7 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <body>
 		<% if @user %>
-      Your user profile is 
-      <pre>            
-				<%#= @user.inspect %>
-      </pre> 
+      Your user profile is <%= @user.inspect %>
 		<% else %>	
       <fb:login-button></fb:login-button>
 		<% end %>	
@@ -13,7 +10,7 @@
     <script>               
       window.fbAsyncInit = function() {
         FB.init({
-          appId: '205829302844514', 
+          appId: '<%= ENV["FACEBOOK_APP_ID"] %>', 
           cookie: true, 
           xfbml: true,
           oauth: true
